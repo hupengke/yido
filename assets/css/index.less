@@ -1,0 +1,83 @@
+.banner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0;
+    .we{
+        z-index: -1000000000;
+    }
+    .test{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        margin-top: 25%;
+        text-align: center;
+        padding: 2em;
+        h1{
+            font-size: 2.8em;
+            color: #fff;
+        }
+        span{
+            color: #ffffff;
+            font-size: 1.3em;
+        }
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .be{
+        position: absolute;
+        width: 5%;
+        height: 8%;
+        top: 88%;
+        left: 44%;
+    }
+   
+}
+
+@media screen and (min-width:760px){
+    .banner{
+        .test{
+            margin-top: 10%;
+            padding: 8em;
+            h1{
+                font-size: 3.8em;
+            }
+            span{
+                font-size: 2.5em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1000px){
+    .banner{
+        .test{
+            h1{
+                font-size: 4.8em;
+            }
+            span{
+                font-size: 3.5em;
+            }
+        }
+    }
+
+}
+
+@media screen  and(max-width:321px)
+{
+    .banner{
+        .test{
+            padding: 3em;
+            h1{
+                font-size: 1.8em;
+            }
+            span{
+                font-size: 1em;
+            }
+        }
+    }
+}
+

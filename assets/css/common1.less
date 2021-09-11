@@ -1,0 +1,66 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+.header{
+    width: 100%;
+    z-index: 1000000;
+    .navbar-default{
+        border-color: transparent;
+        background-color: #0a0a57;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+        text-align: center;
+        border: transparent;
+    }
+    .container{
+        padding: 0;
+        width: 100%;
+    }
+    
+    .logo{
+        img{
+            width: 30%;
+        }
+    } 
+    .navbar-brand{
+        float: none;
+        padding:5px 10px;
+    }
+    .navbar{
+        margin-bottom:15px;
+    }
+    .navbar-default .navbar-toggle{
+        border-color:transparent;
+    }
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+        background-color:transparent;
+    }
+    .navbar-default .navbar-nav>li>a{
+        color: #fff;
+    }
+    .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+        color: #000;
+    }
+}
+
+@media screen and (min-width:540px)
+{
+    .header{
+        .logo{
+            img{
+                width: 22%;
+            }
+        } 
+    } 
+}
+
+@media screen and (min-width:760px){
+    .header{
+        .logo{
+            img{
+                width: 40%;
+            }
+        } 
+    } 
+}

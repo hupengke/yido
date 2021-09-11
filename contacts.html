@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <!-- animate.css -->
+    <link rel="stylesheet" href="./assets/css/animate.min.css" />
+
+    <!-- 重置样式 -->
+    <link rel="stylesheet/less" href="./assets/css/reset.less" />
+
+     <!-- 公共样式 -->
+     <link rel="stylesheet/less" href="./assets/css/common1.less" />
+ 
+     <!-- 页面样式 -->
+     <link rel="stylesheet/less" href="./assets/css/contacts.less" />
+
+     <!-- 百度地图 -->
+     <script type="text/javascript" src="//api.map.baidu.com/getscript?v=2.0&ak=lc157iTGgIH9rzWgDncPpAFDaflGbzCn
+     "></script>
+</head>
+<body>
+      <!--头部-->
+      <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                        <div class="logo navbar-brand">
+                            <img src="./assets/images/home-mobile1.png">
+                        </div>
+                      </div>
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="./index.html">home</a></li>
+                            <li><a href="./about.html">about</a></li>
+                            <li><a href="./products.html">products</a></li>
+                            <li><a href="./contacts.html">contacts</a></li>
+                        </ul>
+                        </ul>
+                    </div>
+                </div>
+                </div>  
+            </nav> 
+        </div>
+    </header>
+
+    <!-- table -->
+    <div class="table">
+        <div class="container">
+            <h1>Contact info</h1>
+        </div>
+    </div>
+    <!-- title -->
+    <div class="title">
+        <div class="container">
+            <p class="q">John Xie</p>
+            <p>Mobile</p>
+            <p>189-0081-5900</p> 
+            <p>Tel</p>
+            <p>0759-7772919</p>
+            <p>Fax</p>
+            <p>0759-7772920</p>
+            <p>E-mail</p>
+            <p>johnxie@gmail.com</p>
+            <p>Address</p>
+            <p>No.60, Tianqiao Road Suicheng, Suixi County, Zhanjiang City, Guangdong Province, China</p>
+        </div>
+    </div>
+    <!-- map -->
+    <div class="map" id="map">
+
+    </div>
+  </div>
+</body>
+</html>
+
+<!--less文件-->
+<script src="./assets/js/less.min.js"></script>
+
+<!--jquery-->
+<script src="./assets/js/jquery.min.js"></script>
+
+<!--bootstrap-->
+<script src="./assets/js/bootstrap.min.js"></script>
+
+<!--wow.js-->
+<script src="./assets/js/wow.min.repeat.js"></script>
+
+<script>
+    //实例化wow.js
+    new WOW().init()
+
+
+   //百度地图
+   var map = new BMap.Map("map");    // 创建Map实例
+
+    // 初始化地图,设置中心点坐标和地图级别
+    map.centerAndZoom(new BMap.Point(113.26197, 23.10379), 12);
+
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+    mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]}));	  
+    map.setCurrentCity("广州");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+
+    //判断是否为手机端
+    var isTouch=('ontouchstart' in window);
+
+    if(isTouch){
+        $(".carousel").on('touchstart', function(e){
+            var that=$(this);
+            var touch = e.originalEvent.changedTouches[0];
+            var startX = touch.pageX;
+            var startY = touch.pageY;
+            $(document).on('touchmove',function(e){
+                touch = e.originalEvent.touches[0] ||e.originalEvent.changedTouches[0];
+                var endX=touch.pageX - startX;
+                var endY=touch.pageY - startY;
+                if(Math.abs(endY)<Math.abs(endX)){
+                    if(endX > 10){
+                        $(this).off('touchmove');
+                        that.carousel('prev');
+                    }else if (endX < -10){
+                        $(this).off('touchmove');
+                        that.carousel('next');
+                    }
+                    return false;
+                }        });
+        });
+        $(document).on('touchend',function(){
+            $(this).off('touchmove');
+        });
+    }
+
+</script>
